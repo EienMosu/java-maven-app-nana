@@ -36,9 +36,9 @@ pipeline {
         stage("build-image") {
             steps {
                 script {
-                    buildImage "ozkan1234/demo-app:jma-3.2"
+                    buildImage "ozkan1234/demo-app:jma-3.3"
                     dockerLogin()
-                    dockerPush "ozkan1234/demo-app:jma-3.2"
+                    dockerPush "ozkan1234/demo-app:jma-3.3"
                 }
             }
         }
