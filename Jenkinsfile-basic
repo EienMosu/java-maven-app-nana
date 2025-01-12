@@ -65,7 +65,7 @@ pipeline {
             steps {
                 script {
                     gv.deployApp()
-                    echo "Deploying to PRODs"
+                    echo "Deploying to PROD"
                 }
             }
         }
