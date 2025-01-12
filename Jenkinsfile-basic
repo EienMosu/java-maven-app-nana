@@ -62,11 +62,17 @@ pipeline {
             }
         }
         stage('deploy') {
-
             steps {
                 script {
                     gv.deployApp()
                     echo "Deploying to PROD"
+                }
+            }
+        }
+        stage ("commit-version-update") {
+            steps {
+                script {
+                    commitVersionUpdate()
                 }
             }
         }
