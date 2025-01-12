@@ -21,6 +21,13 @@ pipeline {
                 }
             }
         }
+        stage("increment-version") {
+            steps {
+                script {
+                    incrementVersion()
+                }
+            }
+        }
         stage('build') {
             when {
                 expression {
@@ -36,9 +43,9 @@ pipeline {
         stage("build-image") {
             steps {
                 script {
-                    buildImage "ozkan1234/demo-app:jma-3.6"
+                    buildImage "ozkan1234/demo-app:$IMAGE_NAME"
                     dockerLogin()
-                    dockerPush "ozkan1234/demo-app:jma-3.6"
+                    dockerPush "ozkan1234/demo-app:$IMAGE_NAME"
                 }
             }
         }
